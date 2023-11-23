@@ -12,7 +12,6 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-
 }
 .app-header {
   justify-content: space-between;
@@ -26,10 +25,10 @@ body {
 .login-wrapper {
   height: 100%;
   margin: auto;
-  width: 50%;
-  padding: 10px;
-  position: absolute;
-
+  padding: 60px;
+  position:relative;
+  width: 100%;
+  max-width: 500px;
 }
 
 .box {
@@ -45,9 +44,10 @@ body {
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
   z-index: 5;
-  max-width: 400px;
-  left: 50%;
+  max-width: 500px;
+  
 }
+
 .box.back {
   transform: scale(.95);
   -webkit-transform: scale(.95);
