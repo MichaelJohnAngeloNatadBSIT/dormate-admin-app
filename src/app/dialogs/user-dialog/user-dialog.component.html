@@ -158,14 +158,7 @@
           Update User Details
         </button>
 
-        <button
-          mat-raised-button
-          color="warn"
-          class="btn-block form-button"
-          (click)="userDeleteDialog(data._id)"
-        >
-          Delete User
-        </button>
+
         <label for="user_valid_id_image" class="labels-image">
           <h4>User Valid ID</h4>
         </label>
@@ -182,6 +175,17 @@
           Verify User
         </button>
       </mat-card>
+      <br/>
+      <br/>
+
+      <button
+      mat-raised-button
+      color="warn"
+      class="btn-block form-button"
+      (click)="userDeleteDialog(data._id)"
+      >
+      Delete User
+      </button>
     </div>
   </div>
 </div>

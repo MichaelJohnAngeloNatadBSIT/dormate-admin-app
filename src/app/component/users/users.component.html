@@ -17,7 +17,7 @@
               *ngFor="let user of users; let i = index"
               (click)="openUserDialog(user)"
             >
-              <td name="Id">{{ user.id }}</td>
+              <td name="Id">{{ user._id }}</td>
               <td name="First Name">{{ user.first_name }}</td>
               <td name="Last Name">{{ user.last_name }}</td>
               <td name="Email">{{ user.email }}</td>
