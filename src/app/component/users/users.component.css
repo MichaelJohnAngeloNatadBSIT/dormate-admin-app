@@ -63,3 +63,11 @@ tr:nth-last-of-type(even) {
     content: none;
   }
 }
+
+.select,
+#locale {
+  width: 100%;
+}
+.like {
+  margin-right: 10px;
+}
