@@ -3,6 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { AdminService } from 'services/admin.service';
 import { Dorm } from 'interface/dorm.model';
 import { DormDialogComponent } from '../../dialogs/dorm-dialog/dorm-dialog.component';
+import { Observable } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dorms',
@@ -11,6 +13,11 @@ import { DormDialogComponent } from '../../dialogs/dorm-dialog/dorm-dialog.compo
 })
 export class DormsComponent implements OnInit {
   dorms: Dorm[];
+  itemsPerPage = 5; // Adjust as per your requirement
+  currentPage = 1;
+  totalPages : number;
+  dormsLength : number;
+  //items: any[] = []; // Your data array
 
   constructor(
     private adminService: AdminService,
@@ -20,16 +27,22 @@ export class DormsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.retrieveDorms();
+    this.retrieveDorms().subscribe((dorms: Dorm[]) => {
+      this.dormsLength = this.dorms.length;
+      this.totalPages = Math.ceil(this.dormsLength / this.itemsPerPage);
+    });
   }
 
-  retrieveDorms(){
-    this.adminService.getAllDorm().subscribe({
-      next: (data) => {
-        this.dorms = data;
-      },
-      error: (e) => console.error(e)
-    });
+  retrieveDorms(): Observable<Dorm[]> {
+    return this.adminService.getAllDorm().pipe(
+      tap((dorms: Dorm[]) => {
+        this.dorms = dorms;
+      }),
+      catchError(error => {
+        console.error("Error fetching users:", error);
+        throw error; // Rethrow the error for the subscriber to handle
+      })
+    );
   }
 
   openDormDialog(dorm:any){
@@ -41,6 +54,24 @@ export class DormsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => { 
       this.retrieveDorms()
      }); 
+  }
+
+  get currentPageItems() {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    return this.dorms.slice(startIndex, endIndex);
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+    }
+  }
+
+  prevPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
   }
 
 }

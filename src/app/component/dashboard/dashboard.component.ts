@@ -30,7 +30,8 @@ export class DashboardComponent {
     }
     this.retrieveDormCount();
     this.retrieveUserCount();
-    this.retrieveApprovedDormCount()
+    this.retrieveApprovedDormCount();
+    
   }
 
   retrieveDormCount(){

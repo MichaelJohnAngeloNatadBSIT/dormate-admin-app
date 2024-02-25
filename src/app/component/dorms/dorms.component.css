@@ -19,6 +19,24 @@ td {
   display: block;
   margin: 0.5rem 1rem;
 }
+.pagination {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.pagination button {
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  margin: 0 5px;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
 td:before {
   color: #888;
   content: attr(name) ":";
