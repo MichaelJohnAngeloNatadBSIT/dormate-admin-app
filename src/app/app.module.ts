@@ -40,9 +40,7 @@ import { MatTableModule } from '@angular/material/table';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
-
-
-
+import { SchedulesComponent } from './component/schedules/schedules.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +58,7 @@ import { RegisterComponent } from './component/register/register.component';
     EventDialogComponent,
     ErrorDialogComponent,
     SpinnerComponent,
+    SchedulesComponent,
   ],
   imports: [
     BrowserModule,

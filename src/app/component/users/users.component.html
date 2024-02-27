@@ -23,7 +23,7 @@
           <td name="Last Name">{{ user.last_name }}</td>
           <td name="Email">{{ user.email }}</td>
           <td name="Username">{{ user.username }}</td>
-          <td name="CreatedAt">{{ user.createdAt }}</td>
+          <td name="CreatedAt">{{ user.createdAt | date: 'MMM d, y, h:mm:ss a' }}</td>
         </tr>
       </tbody>
     </table>

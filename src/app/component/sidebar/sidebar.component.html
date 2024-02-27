@@ -20,6 +20,7 @@
     <app-dashboard id="dashboard"></app-dashboard>
     <app-users id="users"></app-users>
     <app-dorms id="dorms"></app-dorms>
+    <app-schedules id="schedules"></app-schedules>
   </main>
 
   <div id="sidebar" [ngClass]="status ? 'sidebar_responsive' : ''">
@@ -47,6 +48,10 @@
       <div class="sidebar__link active_menu_link">
         <i class="fa fa-home"></i>
         <a href="#dorms">Dorm Posts</a>
+      </div>
+      <div class="sidebar__link active_menu_link">
+        <i class="fa fa-home"></i>
+        <a href="#schedules">Visit Schedules</a>
       </div>
 
       <!-- <h2>MANAGEMENT</h2>

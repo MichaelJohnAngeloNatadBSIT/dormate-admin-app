@@ -16,6 +16,7 @@ export class DashboardComponent {
   dorm_count: any;
   dorm_count_approved: any;
   user_count: any;
+  schedule_count: any;
 
   constructor(
     private storageService: StorageService, 
@@ -30,6 +31,7 @@ export class DashboardComponent {
     }
     this.retrieveDormCount();
     this.retrieveUserCount();
+    this.retrieveScheduleCount();
     this.retrieveApprovedDormCount();
     
   }
@@ -56,6 +58,15 @@ export class DashboardComponent {
     this.adminService.getCountUser().subscribe({
       next: (data) => {
         this.user_count = data;
+      },
+      error: (e) => console.error(e)
+    });
+  }
+
+  retrieveScheduleCount(){
+    this.adminService.getCountSchedule().subscribe({
+      next: (data) => {
+        this.schedule_count = data;
       },
       error: (e) => console.error(e)
     });

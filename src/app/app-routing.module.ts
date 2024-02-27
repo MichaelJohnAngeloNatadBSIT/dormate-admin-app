@@ -4,6 +4,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { DormsComponent } from './component/dorms/dorms.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
+import { SchedulesComponent } from './component/schedules/schedules.component';
 import { SidebarComponent } from './component/sidebar/sidebar.component';
 import { UsersComponent } from './component/users/users.component';
 import { AuthGuard } from './services/auth.guard';
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'dashboard-nav', component: SidebarComponent, canActivate: [AuthGuard] },
   { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
   { path: 'dorms', component: DormsComponent, canActivate: [AuthGuard] },
+  { path: 'schedules', component: SchedulesComponent, canActivate: [AuthGuard] },
   { path: '', component: SidebarComponent, canActivate: [AuthGuard]}
 
 ];

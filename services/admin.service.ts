@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { User } from 'interface/user';
 import { Dorm } from 'interface/dorm.model';
 import { environment } from '../src/environments/environment';
+import { Schedule } from 'interface/schedule';
 
 
 // const API_URL = 'http://localhost:8080/api/admin/';
@@ -72,5 +73,12 @@ export class AdminService {
     return this.http.delete(`${API_URL}delete_dorm/${id}`);
   }
 
+  getAllSchedule(): Observable<Schedule[]>{
+    return this.http.get<Schedule[]>(API_URL + 'all_schedule');
+  }
+
+  getCountSchedule(): Observable<Schedule[]>{
+    return this.http.get<Schedule[]>(API_URL + 'count_schedule');
+  }
 
 }

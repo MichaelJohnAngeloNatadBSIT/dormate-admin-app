@@ -1,0 +1,38 @@
+<body>
+    <h1>Visit Schedules</h1>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Visiting User Name</th>
+            <th>Dorm Post Title</th>
+            <th>Visit Status</th>
+            <th>Created At</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="users_tr" *ngFor="let schedule of currentPageItems; let i = index" (click)="openScheduleDialog(schedule)">
+            <td name="Id">{{ schedule._id }}</td>
+            <td name="Visiting User Name">{{ schedule.user_full_name }}</td>
+            <td name="Dorm Post Title">{{ schedule.dorm_title }}</td>
+            <td name="Visit Status">
+              {{ schedule.publish ? 'Approved By Landlord' : 'Not Approved By Landlord' }}
+            </td>
+            <td name="CreatedAt">{{ schedule.createdAt }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- Pagination section -->
+      <div class="pagination">
+        <button (click)="prevPage()" [disabled]="currentPage === 1">
+          Previous
+        </button>
+        <span>{{ currentPage }} / {{ totalPages }}</span>
+        <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+          Next
+        </button>
+      </div>
+    </div>
+  </body>
+  
