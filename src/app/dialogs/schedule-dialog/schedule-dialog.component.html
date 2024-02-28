@@ -1,0 +1,144 @@
+<mat-card>
+  <mat-card-header>
+    <h2>Schedule Information</h2>
+  </mat-card-header>
+</mat-card>
+<mat-card-content>
+  <div class="container">
+    <form [formGroup]="scheduleForm" novalidate (ngSubmit)="updateDorm()">
+      <label for="dorm_title">Dorm Title</label>
+      <input
+        type="text"
+        id="dorm_title"
+        name="dorm_title"
+        placeholder="Dorm Title"
+        [(ngModel)]="data.dorm_title"
+        formControlName="dorm_title"
+        disabled
+      />
+
+      <label for="address">Visitor Name</label>
+      <input
+        type="text"
+        id="user_full_name"
+        name="user_full_name"
+        placeholder="Visitor Name"
+        [(ngModel)]="data.user_full_name"
+        formControlName="user_full_name"
+        disabled
+      />
+
+      <label for="schedule_date">Schedule Date</label>
+      <input
+        type="text"
+        id="schedule_date"
+        name="schedule_date"
+        placeholder="Schedule Date"
+        [(ngModel)]="data.schedule_date"
+        formControlName="schedule_date"
+        disabled
+      />
+
+      <label for="approve_visit">Approved Schedule</label>
+      <input
+        type="text"
+        id="approve_visit"
+        name="approve_visit"
+        placeholder="Dorm Adress"
+        [(ngModel)]="data.approve_visit"
+        formControlName="approve_visit"
+        disabled
+      />
+
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        name="description"
+        placeholder="Description of Visit"
+        style="height: 150px"
+        [(ngModel)]="data.description"
+        formControlName="description"
+        disabled
+      ></textarea>
+    </form>
+
+    <div class="card  mt-3">
+        <img src="{{ userLandlord.user_image}}" alt="landlord image" style="width:100%">
+        <h1>Landlord Information</h1>
+        <p class="title">{{ userLandlord.first_name}} {{ userLandlord.last_name}}</p>
+        <i
+            *ngIf="userLandlord.verified"
+            class="fa fa-check-circle-o"
+            style="font-size: 15px; color: #5687fb"
+            >Verified
+        </i>
+        <i
+            *ngIf="!userLandlord.verified"
+            class="fa fa-times"
+            style="font-size: 15px; color: #94918c"
+            >Not Verified
+        </i>
+        <p>email: {{ userLandlord.email }}</p>
+        <p>mobile number: {{ userLandlord.mobile_number }}</p>
+        <!-- <p><button>Contact</button></p> -->
+      </div>
+
+      <div class="card mt-3">
+        <swiper [config]="config">
+            <div class="swiper-wrapper">
+              <div
+                class="swiper-slide"
+                *ngFor="let image of dorm.dorm_images"
+              >
+                <img src="{{ image }}" alt="img 1" class="dorm_image" style="width: 200px; height: 150px;"/>
+              </div>
+            </div>
+  
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+  
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </swiper>
+        <h1>Dorm Information</h1>
+        <p class="title">{{ dorm.title}}</p>
+        <i
+            *ngIf="dorm.for_rent"
+            class="fa fa-check-circle-o"
+            style="font-size: 15px; color: #5687fb"
+            >For Rent
+        </i>
+        <i
+            *ngIf="!dorm.for_rent"
+            class="fa fa-times"
+            style="font-size: 15px; color: #94918c"
+            >Not For Rent
+        </i>
+        <p>address: {{ dorm.address }}</p>
+        <p>contact number: {{ dorm.contact_number }}</p>
+      </div>
+
+      <div class="card mt-3">
+        <img src="{{ userTenant.user_image}}" alt="tenant image" style="width:100%">
+        <h1>Visitor Information</h1>
+        <p class="title">{{ userTenant.first_name}} {{ userTenant.last_name}}</p>
+        <i
+            *ngIf="userTenant.verified"
+            class="fa fa-check-circle-o"
+            style="font-size: 15px; color: #5687fb"
+            >Verified
+        </i>
+        <i
+            *ngIf="!userTenant.verified"
+            class="fa fa-times"
+            style="font-size: 15px; color: #94918c"
+            >Not Verified
+        </i>
+        <p>email: {{ userTenant.email }}</p>
+        <p>mobile number: {{ userTenant.mobile_number }}</p>
+        <!-- <p><button>Contact</button></p> -->
+      </div>
+  </div>
+</mat-card-content>
+

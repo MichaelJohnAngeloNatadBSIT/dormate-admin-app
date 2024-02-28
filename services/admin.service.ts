@@ -37,6 +37,10 @@ export class AdminService {
     return this.http.get<User[]>(API_URL + 'all_user');
   }
 
+  getUserById(id: any): Observable<User> {
+    return this.http.get<User>(`${API_URL}find_one_user/${id}`);
+  }
+
   getCountUser(): Observable<User[]>{
     return this.http.get<User[]>(API_URL + 'count_user');
   }
@@ -62,7 +66,7 @@ export class AdminService {
   }
 
   getDormById(id: any): Observable<Dorm> {
-    return this.http.get<Dorm>(`${API_URL}find_one/${id}`);
+    return this.http.get<Dorm>(`${API_URL}find_one_dorm/${id}`);
   }
 
   updateDormInfo(id: any, data: any): Observable<any> {
@@ -80,5 +84,4 @@ export class AdminService {
   getCountSchedule(): Observable<Schedule[]>{
     return this.http.get<Schedule[]>(API_URL + 'count_schedule');
   }
-
 }

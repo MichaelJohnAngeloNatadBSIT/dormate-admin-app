@@ -41,6 +41,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
 import { SchedulesComponent } from './component/schedules/schedules.component';
+import { ScheduleDialogComponent } from './dialogs/schedule-dialog/schedule-dialog.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { SchedulesComponent } from './component/schedules/schedules.component';
     ErrorDialogComponent,
     SpinnerComponent,
     SchedulesComponent,
+    ScheduleDialogComponent,
   ],
   imports: [
     BrowserModule,

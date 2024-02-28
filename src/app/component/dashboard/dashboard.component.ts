@@ -33,43 +33,40 @@ export class DashboardComponent {
     this.retrieveUserCount();
     this.retrieveScheduleCount();
     this.retrieveApprovedDormCount();
-    
   }
 
-  retrieveDormCount(){
-    this.adminService.getCountDorm().subscribe({
-      next: (data) => {
-        this.dorm_count = data;
-      },
-      error: (e) => console.error(e)
-    });
+  async retrieveDormCount() {
+    try {
+      this.dorm_count = await this.adminService.getCountDorm().toPromise();
+    } catch (error) {
+      console.error(error);
+    }
   }
+  
 
-  retrieveApprovedDormCount(){
-    this.adminService.getCountDormApproved().subscribe({
-      next: (data) => {
-        this.dorm_count_approved = data;
-      },
-      error: (e) => console.error(e)
-    });
+  async retrieveApprovedDormCount() {
+    try {
+      const data = await this.adminService.getCountDormApproved().toPromise();
+      this.dorm_count_approved = data;
+    } catch (error) {
+      console.error(error);
+    }
   }
-
-  retrieveUserCount(){
-    this.adminService.getCountUser().subscribe({
-      next: (data) => {
-        this.user_count = data;
-      },
-      error: (e) => console.error(e)
-    });
+  async retrieveUserCount() {
+    try {
+      this.user_count = await this.adminService.getCountUser().toPromise();
+    } catch (error) {
+      console.error(error);
+    }
   }
-
-  retrieveScheduleCount(){
-    this.adminService.getCountSchedule().subscribe({
-      next: (data) => {
-        this.schedule_count = data;
-      },
-      error: (e) => console.error(e)
-    });
+  
+  async retrieveScheduleCount() {
+    try {
+      this.schedule_count = await this.adminService.getCountSchedule().toPromise();
+    } catch (error) {
+      console.error(error);
+    }
   }
+  
 
 }

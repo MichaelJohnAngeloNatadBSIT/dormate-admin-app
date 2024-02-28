@@ -5,6 +5,7 @@ import { DormDialogComponent } from '../../dialogs/dorm-dialog/dorm-dialog.compo
 import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Schedule } from 'interface/schedule';
+import { ScheduleDialogComponent } from 'src/app/dialogs/schedule-dialog/schedule-dialog.component';
 
 @Component({
   selector: 'app-schedules',
@@ -45,11 +46,11 @@ export class SchedulesComponent {
     );
   }
 
-  openScheduleDialog(dorm:any){
-    let dialogRef = this.dialog.open(DormDialogComponent, { 
+  openScheduleDialog(schedule:any){
+    let dialogRef = this.dialog.open(ScheduleDialogComponent, { 
       width: '700px', 
       height: '80vh',
-      data: dorm
+      data: schedule
     }); 
     dialogRef.afterClosed().subscribe(result => { 
       this.retrieveSchedules()
