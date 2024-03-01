@@ -6,7 +6,7 @@
         <div class="card-block">
           <h6 class="m-b-20">All Dorm Posts</h6>
           <h2 class="text-right">
-            <i class="fa fa-bed f-left"></i><span>{{ dorm_count.data }}</span>
+            <i class="fa fa-bed f-left"></i><span>{{ dorm_count.data || 0 }}</span>
           </h2>
         </div>
       </div>
@@ -17,7 +17,7 @@
         <div class="card-block">
           <h6 class="m-b-20">Users Registered</h6>
           <h2 class="text-right">
-            <i class="fa fa-users f-left"></i><span>{{ user_count.data }}</span>
+            <i class="fa fa-users f-left"></i><span>{{ user_count.data || 0 }}</span>
           </h2>
           <!-- <p class="m-b-0">Completed Orders<span class="f-right">351</span></p> -->
         </div>
@@ -29,7 +29,7 @@
         <div class="card-block">
           <h6 class="m-b-20">Approved Dorm Posts</h6>
           <h2 class="text-right">
-            <i class="fa fa-thumbs-up f-left"></i><span>{{ dorm_count_approved.data }}</span>
+            <i class="fa fa-thumbs-up f-left"></i><span>{{ dorm_count_approved.data || 0 }}</span>
           </h2>
           <!-- <p class="m-b-0">Completed Orders<span class="f-right">351</span></p> -->
         </div>
@@ -39,9 +39,9 @@
     <div class="col-md-4 col-xl-3">
       <div class="card bg-c-pink order-card">
         <div class="card-block">
-          <h6 class="m-b-20">User Visits</h6>
+          <h6 class="m-b-20">Visit Schedules</h6>
           <h2 class="text-right">
-            <i class="fa fa-users f-left"></i><span>{{ schedule_count.data }}</span>
+            <i class="fa fa-users f-left"></i><span>{{ schedule_count.data || 0 }}</span>
           </h2>
           <!-- <p class="m-b-0">Completed Orders<span class="f-right">351</span></p> -->
         </div>
