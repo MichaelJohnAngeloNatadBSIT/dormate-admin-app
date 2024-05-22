@@ -5,6 +5,7 @@ import { User } from 'interface/user';
 import { Dorm } from 'interface/dorm.model';
 import { environment } from '../src/environments/environment';
 import { Schedule } from 'interface/schedule';
+import { Payment } from 'interface/payment';
 
 
 // const API_URL = 'http://localhost:8080/api/admin/';
@@ -83,5 +84,9 @@ export class AdminService {
 
   getCountSchedule(): Observable<Schedule[]>{
     return this.http.get<Schedule[]>(API_URL + 'count_schedule');
+  }
+
+  getAllPayment(): Observable<Payment[]>{
+    return this.http.get<Payment[]>(API_URL + 'all_payment');
   }
 }

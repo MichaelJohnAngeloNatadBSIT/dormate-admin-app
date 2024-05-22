@@ -16,7 +16,7 @@
         <tr class="users_tr" *ngFor="let dorm of currentPageItems; let i = index" (click)="openDormDialog(dorm)">
           <td name="Id">{{ dorm._id }}</td>
           <td name="Title">{{ dorm.title }}</td>
-          <td name="Address">{{ dorm.address }}</td>
+          <td name="Address">{{ dorm.payment_status }}</td>
           <td name="Lessor">{{ dorm.lessor }}</td>
           <td name="Published">
             {{ dorm.publish ? 'Published' : 'Not Published' }}

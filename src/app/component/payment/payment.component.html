@@ -1,0 +1,38 @@
+<body>
+    <h1>Payments</h1>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Payment ID</th>
+            <!-- <th>Payment Amount</th> -->
+            <th>Payment Status</th>
+            <th>Dorm ID</th>
+            <th>User ID</th>
+            <th>Created At</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="users_tr" *ngFor="let payment of currentPageItems; let i = index" (click)="openDormDialog(dorm)">
+            <td name="Id">{{ payment._id }}</td>
+            <!-- <td name="Title">{{ payment.amount }}</td> -->
+            <td name="Address">{{ payment.status }}</td>
+            <td name="Lessor">{{ payment.dorm_id }}</td>
+            <td name="Lessor">{{ payment.user_id }}</td>
+            <td name="CreatedAt">{{ payment.createdAt | date: 'MMM d, y, h:mm:ss a'}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- Pagination section -->
+      <div class="pagination">
+        <button (click)="prevPage()" [disabled]="currentPage === 1">
+          Previous
+        </button>
+        <span>{{ currentPage }} / {{ totalPages }}</span>
+        <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+          Next
+        </button>
+      </div>
+    </div>
+  </body>
+  

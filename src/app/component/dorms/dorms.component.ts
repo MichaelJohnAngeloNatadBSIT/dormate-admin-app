@@ -12,11 +12,11 @@ import { catchError, tap } from 'rxjs/operators';
   styleUrls: ['./dorms.component.css']
 })
 export class DormsComponent implements OnInit {
-  dorms: Dorm[];
-  itemsPerPage = 5; // Adjust as per your requirement
-  currentPage = 1;
-  totalPages : number;
-  dormsLength : number;
+    dorms: Dorm[];
+    itemsPerPage = 5; // Adjust as per your requirement
+    currentPage = 1;
+    totalPages : number;
+    dormsLength : number;
   //items: any[] = []; // Your data array
 
   constructor(

@@ -91,10 +91,11 @@ export class ScheduleDialogComponent {
   }
 
   getUserTenant(): void {
-    this.adminService.getUserById(this.data.tenant_id)
+    this.adminService.getUserById(this.data.tenant_user_id)
       .subscribe({
         next: (data) => {
           this.userTenant =  data;
+          console.log('user: '+this.userTenant);
         },
         error: (e) => console.error(e)
       });

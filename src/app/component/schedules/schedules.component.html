@@ -14,7 +14,7 @@
         <tbody>
           <tr class="users_tr" *ngFor="let schedule of currentPageItems; let i = index" (click)="openScheduleDialog(schedule)">
             <td name="Id">{{ schedule._id }}</td>
-            <td name="Visiting User Name">{{ schedule.user_full_name }}</td>
+            <td name="Visiting User Name">{{ schedule.tenant_full_name }}</td>
             <td name="Dorm Post Title">{{ schedule.dorm_title }}</td>
             <td name="Visit Status">
               {{ schedule.publish ? 'Approved By Landlord' : 'Not Approved By Landlord' }}
