@@ -17,6 +17,9 @@ export class DashboardComponent {
   dorm_count_approved: any;
   user_count: any;
   schedule_count: any;
+  payment_total: any;
+  payment_count: any;
+  formattedTotalAmount: string
 
   constructor(
     private storageService: StorageService, 
@@ -33,6 +36,8 @@ export class DashboardComponent {
     this.retrieveUserCount();
     this.retrieveScheduleCount();
     this.retrieveApprovedDormCount();
+    this.retrievePaymentTotal();
+    this.retrievePaymentCount();
   }
 
   async retrieveDormCount() {
@@ -67,6 +72,32 @@ export class DashboardComponent {
       console.error(error);
     }
   }
+
+  async retrievePaymentCount() {
+    try {
+      this.payment_count = await this.adminService.getCountPayment().toPromise();
+      console.log(this.payment_count);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async retrievePaymentTotal() {
+    try {
+      this.payment_total= await this.adminService.getTotalPayment().toPromise();
+      console.log(this.payment_total)
+      this.formattedTotalAmount = this.formatTotalAmount(this.payment_total.totalAmount);
+
+    } catch (error) {
+      console.error(error);
+    }
+  }
   
+  formatTotalAmount(amount: number): string {
+    const amountStr = amount.toString();
+    const truncatedAmount = amountStr.slice(0, -2); // Remove last 2 digits
+    const finalAmount = Number(truncatedAmount).toFixed(2); // Ensure 2 decimal places
+    return finalAmount;
+  }
 
 }

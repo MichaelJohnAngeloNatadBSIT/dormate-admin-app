@@ -89,4 +89,12 @@ export class AdminService {
   getAllPayment(): Observable<Payment[]>{
     return this.http.get<Payment[]>(API_URL + 'all_payment');
   }
+
+  getCountPayment(): Observable<Payment[]>{
+    return this.http.get<Payment[]>(API_URL + 'count_payment');
+  }
+
+  getTotalPayment(): Observable<Payment[]>{
+    return this.http.get<Payment[]>(API_URL + 'total_payment');
+  }
 }

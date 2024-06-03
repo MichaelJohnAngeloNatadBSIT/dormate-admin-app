@@ -37,7 +37,7 @@
     </div>
 
     <div class="col-md-4 col-xl-3">
-      <div class="card bg-c-pink order-card">
+      <div class="card bg-c-blue order-card">
         <div class="card-block">
           <h6 class="m-b-20">Visit Schedules</h6>
           <h2 class="text-right">
@@ -48,16 +48,16 @@
       </div>
     </div>
 
-    <!-- <div class="col-md-4 col-xl-3">
+    <div class="col-md-4 col-xl-3">
       <div class="card bg-c-pink order-card">
         <div class="card-block">
           <h6 class="m-b-20">Sales</h6>
           <h2 class="text-right">
-            <i class="fa fa-money f-left"></i><span>486</span>
+            <i class="fa fa-money f-left"></i><span>{{ formattedTotalAmount | currency: 'PHP' : 'symbol' : '1.2-2' || 0 }}</span>
           </h2>
-          <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+          <p class="m-b-0">Completed Payments<span class="f-right">{{ payment_count.data || 0 }}</span></p>
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
 </div>
