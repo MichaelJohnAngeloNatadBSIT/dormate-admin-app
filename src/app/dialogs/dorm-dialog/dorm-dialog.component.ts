@@ -36,14 +36,17 @@ export class DormDialogComponent {
        bathroom: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(1)]],
        rent: ['', [Validators.required, Validators.maxLength(100000), Validators.minLength(100)]],
        lessor: ['', [Validators.required, Validators.maxLength(40), Validators.minLength(5)]],
+
     });
 
     this.publishForm = this.fb.group({
-      publish: ['true']
+      publish: ['true'],
+      admin_approval:['true']
     })
 
     this.unPublishForm = this.fb.group({
-      publish: ['false']
+      publish: ['false'],
+      admin_approval:['false']
     })
 
   }
