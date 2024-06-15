@@ -43,6 +43,7 @@ import { RegisterComponent } from './component/register/register.component';
 import { SchedulesComponent } from './component/schedules/schedules.component';
 import { ScheduleDialogComponent } from './dialogs/schedule-dialog/schedule-dialog.component';
 import { PaymentComponent } from './component/payment/payment.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -93,6 +94,7 @@ import { PaymentComponent } from './component/payment/payment.component';
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: EventInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true},
+    DatePipe
   ],
   bootstrap: [AppComponent],
   entryComponents: [ErrorDialogComponent, EventDialogComponent]
